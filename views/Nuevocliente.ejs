@@ -1,0 +1,138 @@
+<%- include('partials/header') %>
+<div class="contenedor">
+  <div class="Encabezado">
+    <div>
+      <h1>Nuevo Cliente</h1>
+    </div>
+  </div>
+  <form class="formulario" action="resgistro" method="POST" id="form">
+    <div class="campo">
+    <% var d = new Date(Date.now()).toLocaleString(); %>     
+      <label>Fecha de Creacion:</label><br />
+      <input type="text" name="Fecha_de_registro" value="<%= d %>" readonly/>
+    </div>
+    <div class="campo">
+    <% var e = new Date(Date.now()).toLocaleString(); %>
+      <label>Fecha Ult Modificacion:</label><br />
+      <input type="text" name="Fecha_Ultima_Modificacion" value="<%= e %>"/>
+    </div>
+    <div class="campo">
+      <label
+        >Nombre:
+        <input
+          type="text"
+          name="Nombre"
+          placeholder="Ingrese su nombre"
+          required /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Apellido:
+        <input
+          type="text"
+          name="Apellidos"
+          placeholder="Ingrese sus Apellidos"
+          required /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >E-mail:
+        <input
+          type="email"
+          name="Email"
+          placeholder="Ingrese su correo"
+          required /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label>
+        Telefono:
+        <input
+          type="number"
+          name="Telefono"
+          placeholder="Ingrese su telefono"
+          required /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Pais:
+        <input type="text" name="Pais" placeholder="Ingrese Pais" /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Ciudad:
+        <input
+          type="text"
+          name="Ciudad"
+          placeholder="Ingrese ciudad"
+          required /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Direccion:
+        <input
+          type="name"
+          name="Direccion"
+          placeholder="Ingrese direccion" /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Barrio:
+        <input type="text" name="Barrio" placeholder="Ingrese Barrio" /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Localidad:
+        <input
+          type="text"
+          name="Localidad"
+          placeholder="Ingrese localidad" /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Facebook:
+        <input type="text" name="Facebook" placeholder="Ingrese Facebook" /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label
+        >Linkedin:
+        <input type="text" name="Linkedin" placeholder="Ingrese linkedin" /></label
+      ><br />
+    </div>
+    <div class="campo">
+      <label>Twitter: <input type="text" name="Twitter" placeholder="Ingrese Twitter" /></label
+      ><br />
+    </div>
+    <div class="campo">
+        <label>Instagram: <input type="text" name="Instagram" placeholder="Ingrese instagram" /></label
+        ><br />
+      </div>
+    <div class="campo">
+      <label> Estado</label><br/>
+      <select name="Estado" required>
+        <option value="">Elige una opción</option>
+        <option>Interesado</option>
+        <option>Presupuesto enviado</option>
+        <option>Cliente recurrente</option>
+        <option>No Cliente</option>
+        <option>Cliente</option>
+      </select>
+    </div>
+    <div></div>
+    <div></div>
+    <div class="campo">
+      <button class="btn" type="submit">Crear</button>
+    </div>
+  </form>
+</div>
+
+<%- include('partials/footer'); %>

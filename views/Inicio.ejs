@@ -1,0 +1,105 @@
+<%- include('partials/header') %>
+<% if (algo != "") { %>
+<div class="alert success">
+  <span class="closebtn">&times;</span>  
+  <strong><%= algo %></strong>
+</div>
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
+<% } %>
+<div class="contenedor">
+  <div class="Encabezado">
+    <div>
+      <h1>clientes</h1>
+    </div>
+    <div class="botones"> 
+        <a href="/Nuevocliente">
+          <button class="btn">
+            Nuevo
+          </button>
+        </a>
+        <div class="botones">
+          <form action="filtro" method="POST">
+            <div class="campo">
+                <label class="Estado">Estado</label>
+                <select class="select1" name="Estado">
+                    <option value="">Elige una opción</option>
+                    <option> Interesado</option>
+                    <option>Presupuesto enviado</option>
+                    <option> Cliente recurrente</option>
+                    <option>No Cliente</option>
+                    <option> Cliente</option>
+                </select>
+                <div class="campo">
+                    <button class="btn" type="submit">Filtrar</button>
+                </div>
+            </div>
+          </form>
+        </div>
+
+    </div>
+  </div>
+  <div>
+    <div class="table-responsive-sm tabla">
+      <table class="table table-dark table-hover table-sm">
+        <thead class="thead-dark">
+          <tr class="bg-primary">
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Pais</th>
+            <th>Ciudad</th>
+            <th>Dirección</th>
+            <th>Localidad</th>
+            <th>Barrio</th>
+            <th>Fecha creación</th>
+            <th>Fecha Ultima Modificacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < clientes.length; i++){ %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td><%= clientes[i].Nombre %></td>
+            <td><%= clientes[i].Apellidos %></td>
+            <td><%= clientes[i].Email %></td>
+            <td><%= clientes[i].Telefono %></td>
+            <td><%= clientes[i].Pais %></td>
+            <td><%= clientes[i].Ciudad %></td>
+            <td><%= clientes[i].Direccion %></td>
+            <td><%= clientes[i].Localidad %></td>
+            <td><%= clientes[i].Barrio %></td>
+            <td><%= clientes[i].Fecha_de_registro %></td>
+            <td><%= clientes[i].Fecha_Ultima_Modificacion %></td>
+            <td><%= clientes[i].Estado %></td>
+            <td style="display: flex">
+              <a href="/modificar/<%= clientes[i]._id %>/<%= clientes[i].Estado %>"
+                ><img title="Modificar/Eliminar" class="icono" src="/Seleccionar.jpg"
+              /></a>
+              <a href="/Vseguimientos/<%= clientes[i]._id %>/<%= clientes[i].Nombre %>/<%= clientes[i].Apellidos %>"><img title="Seguimiento Cliente" class="icono" src="/Seguimiento.png"  /></a>
+              <a href="/historico/<%= clientes[i]._id %>/<%= clientes[i].Nombre %>/<%= clientes[i].Apellidos %>"><img class="icono" src="/Historial.png" title="Historico" /></a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+    <%- include('partials/footer') %>
+

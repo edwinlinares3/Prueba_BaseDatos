@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<div class="contenedor">
+  <div class="Encabezado">
+    <h1>Historico cliente <span><%= Nombre +" "+ Apellido %></span></h1>
+  </div>
+  <h3>Id Cliente <%= id_Cliente %></h3>
+  <div class="table-responsive-sm tabla1">
+    <table class="table table-dark table-hover table-sm">
+      <thead class="thead-dark">
+        <tr class="bg-primary">
+          <th scope="col">#</th>
+          <th>Fecha_Actualizacion</th>
+          <th>Estado Actual</th>
+          <th>Nuevo Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% console.log(historicos.length) %> <% for(var i = 0; i <
+        historicos.length; i++){ %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= historicos[i].Fecha_Actualizacion %></td>
+          <td><%= historicos[i].EstadoActual %></td>
+          <td><%= historicos[i].NuevoEstado %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,75 @@
+<%- include('partials/header') %>
+
+<div class="contenedor1">
+  
+    <form class="formulario for2" action="\nuevoSeguimiento" method="post">
+      <div class="Encabezado">
+        <h1>Seguimiento cliente <span><%= Nombre +" "+ Apellido %></span></h1>
+      </div>
+      <div class="campo">
+        <% var d = new Date(Date.now()).toLocaleString(); %>
+        <label>Fecha de Seguimiento:</label>
+      </div>
+      <div class="campo">
+        <input
+          type="text"
+          name="Fecha_de_seguimiento"
+          value="<%= d %>"
+          readonly
+        />
+      </div>
+      <div class="campo">
+        <label>Id_Cliente:</label>
+      </div>
+      <div class="campo">
+        <input class="input1" type="text" name="id_Cliente" value="<%= id_Cliente %>" readonly/>
+      </div>
+      <div></div>
+      <div class="campo">
+        <label>Nombre:</label>
+      </div>
+      <div class="campo">
+        <input type="text" name="Nombre_Cliente" value="<%= Nombre %>" readonly/><br />
+      </div>
+      <div>
+        <label>Apellidos:</label>
+      </div>
+      <div class="campo">
+        <input type="text" name="Apellidos_Cliente" value="<%= Apellido %>" readonly/>
+      </div>
+
+      <div class="campo">
+        <label>Observaciones</label>
+      </div>
+      <div class="campo">
+        <textarea name="Observaciones" id="" cols="100" rows="5" required></textarea>
+      </div>
+
+      <div class="botones1">
+        <button class="btn" type="submit">Guardar</button>
+      </div>
+    </form>
+    <div class="table-responsive-sm tabla1">
+      <table class="table table-dark table-hover table-sm">
+        <thead class="thead-dark">
+          <tr class="bg-primary">
+            <th scope="col">#</th>
+            <th>Fecha de Seguimiento</th>
+            <th>Observaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% console.log(seguimiento.length) %>
+          <% for(var i = 0; i < seguimiento.length; i++){ %>
+          <tr>
+            
+            <th scope="row"><%= i %></th>
+            <td><%= seguimiento[i].Fecha_de_seguimiento %></td>
+            <td><%= seguimiento[i].Observaciones %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+</div>
+<%- include('partials/footer') %>

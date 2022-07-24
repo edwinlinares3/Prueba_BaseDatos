@@ -1,0 +1,146 @@
+<%- include('partials/header') %>
+
+<div class="contenedor">
+  <div class="Encabezado">
+    <div>
+      <h1>Informacion Cliente <span><%= clientes._id %></span></h1>
+    </div>
+  </div>
+  <form class="formulario" action="\modificado" method="POST">
+    <input type="hidden" name="id" value="<%= clientes._id %>" />
+    <div class="campo">
+      <div><label name="nombre">Nombre</label></div>
+      <div class="input1">
+        <input type="text" name="Nombre" value="<%= clientes.Nombre %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="apellidos">Apellidos</label></div>
+      <div class="input1">
+        <input type="text" name="apellidos" value="<%= clientes.Apellidos %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="email">Email</label></div>
+      <div class="input1">
+        <input type="text" name="email" value="<%= clientes.Email %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="telefono">Telefono</label></div>
+      <div class="input1">
+        <input type="text" name="telefono" value="<%= clientes.Telefono %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="pais">Pais</label></div>
+      <div class="input1">
+        <input type="text" name="pais" value="<%= clientes.Pais %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="ciudad">Ciudad</label></div>
+      <div class="input1">
+        <input type="text" name="ciudad" value="<%= clientes.Ciudad %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="direccion">Dirección</label></div>
+      <div class="input1">
+        <input type="text" name="direccion" value="<%= clientes.Direccion %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="localidad">Localidad</label></div>
+      <div class="input1">
+        <input type="text" name="localidad" value="<%= clientes.Localidad %>" />
+      </div>
+    </div>
+    <div class="campo">
+      <div><label name="barrio">Barrio</label></div>
+      <div class="input1">
+        <input type="text" name="barrio" value="<%= clientes.Barrio %>" />
+      </div>
+    </div>
+
+    <div class="campo">
+      <div><label name="estado">Estado Actual</label></div>
+      <input type="text" name="estadoactual" value="<%= est_enviado %>" readonly>
+      <div><label>Nuevo Estado</label></div>
+      <div class="input1">
+        <select name="estado" value="<%= est_enviado %>" required>
+          <option value="">Elige una opción</option>
+          <option>Interesado</option>
+          <option>Presupuesto enviado</option>
+          <option>Cliente recurrente</option>
+          <option>No Cliente</option>
+          <option>Cliente</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="campo">
+      <div><label name="fecha_creacion">Fecha creacion</label></div>
+      <div class="input1">
+        <input
+          type="text"
+          name="fecha_creacion"
+          value="<%= clientes.Fecha_de_registro %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="campo">
+      <div>
+        <label name="Fecha_Ultima_Modificacion"
+          >Fecha Ultima Modificacion</label
+        >
+      </div> 
+      <div class="input1">
+        <input type="text" name="Fecha_Ultima_Modificacion" value="<%= clientes.Fecha_Ultima_Modificacion %>" readonly />
+      </div>
+    </div>
+    <div class="campo">
+      <h3>Redes Sociales</h3>
+    </div>
+    <div class="redes">
+      <label name="facebook">Facebook</label>
+      <input
+        type="text"
+        name="facebook"
+        value="<%= clientes.Facebook %>"
+      />
+      <label name="instagram">Instagram</label>
+      <input
+        type="text"
+        name="instagram"
+        value="<%= clientes.Instagram %>"
+      />
+    </div>
+    <div class="redes">
+      <label name="linkedin">Linkedin</label>
+      <input
+        type="text"
+        name="linkedin"
+        value="<%= clientes.Linkedin %>"
+      />
+      <label name="twitter">Twitter</label>
+      <input
+        type="text"
+        name="twitter"
+        value="<%= clientes.Twitter %>"
+      />
+    </div>
+    <div></div>
+    <div class="botones1">
+      <button class="btn" type="submit">Modificar</button>
+    </div>
+  </form>
+  <div class="botones1">
+    <a href="/eliminar/<%= clientes._id %>"><button class="btn">Eliminar</button></a>   
+  </div>
+</div>
+
+
+    <%- include('partials/footer') %>
+
